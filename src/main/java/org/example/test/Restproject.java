@@ -1,14 +1,25 @@
 package org.example.test;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 //Test project 
 @RestController
-public class Restproject {
-
+@RequestMapping("/api/users") // Base URL
+    public class Restproject {
+    // GET: /api/users/hello
     @GetMapping("/hello")
-    public String hello() {
-        System.out.println("Received request on /hello endpoint");
-        return "Hello from Spring Boot REST!";
+    public String sayHello() {
+        return "Hello from REST API!";
+    }
+
+    // GET: /api/users/{id}
+    @GetMapping("/{id}")
+    public String getUserById(@PathVariable Long id) {
+        return "User ID: " + id;
+    }
+
+    // POST: /api/users
+    @PostMapping
+    public String createUser(@RequestBody String user) {
+        return "Created user: " + user;
     }
 }
