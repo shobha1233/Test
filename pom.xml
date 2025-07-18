@@ -58,6 +58,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>shobha_github_actions</finalName>
     </build>
 
 </project>
